@@ -11,7 +11,7 @@ class User(@Id val userName: String, val firstName: String, val lastName: String
     val propSetByInit: String
 
     init {
-        propSetByInit = "foo" // In reality this would be a value calculated at runtime
+        propSetByInit = "foo" // In reality this would be calculated at runtime
     }
 }
 

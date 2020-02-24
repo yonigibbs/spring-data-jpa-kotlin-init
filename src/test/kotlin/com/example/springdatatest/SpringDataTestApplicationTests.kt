@@ -16,7 +16,14 @@ class SpringDataTestApplicationTests(@Autowired private val userRepository: User
     }
 
     @Test
-    fun `test prop set by init`() {
+    fun `test prop set by init - manual`() {
+        // This test works
+        val user = User("job.bloggs", "Joe", "Bloggs")
+        Assertions.assertEquals("foo", user.propSetByInit)
+    }
+
+    @Test
+    fun `test prop set by init - jpa repository`() {
         // This test fails
         val user = userRepository.findById("joe.bloggs").orElseThrow { Exception("joe.bloggs not found") }
         Assertions.assertEquals("foo", user.propSetByInit)
